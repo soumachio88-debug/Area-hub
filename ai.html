@@ -17,28 +17,34 @@
         <li><a href="scripts.html">Scripts</a></li>
         <li><a href="bypass.html">Bypass</a></li>
         <li><a href="tools.html">Tools</a></li>
-        <li><a href="ai.html">AI Assistant</a></li> <!-- 新しいリンク追加 -->
+        <li><a href="ai.html">AI Assistant</a></li>
       </ul>
     </nav>
   </header>
 
   <div id="particles-js"></div>
 
-  <div class="container text-center">
-    <h1 class="text-6xl md:text-8xl my-20 glow-text">Area Hub AI Assistant</h1>
-    <p class="text-3xl glow-purple mb-12">僕が君の質問に何でも答えるよ😈<br>executor、script、インストール方法…なんでも聞いて！</p>
+  <div class="container px-4 py-8 min-h-screen flex flex-col items-center justify-center">
+    <h1 class="text-5xl sm:text-6xl md:text-7xl text-center glow-text mb-8">Area Hub AI Assistant</h1>
+    <p class="text-xl sm:text-2xl text-center glow-purple mb-12 px-4">
+      僕が君の質問に何でも答えるよ😈<br class="sm:hidden">
+      executor、script、インストール方法…なんでも聞いて！
+    </p>
 
-    <!-- メイン巨大チャットウィンドウ -->
-    <div class="max-w-4xl mx-auto">
-      <div class="card p-8 tilt" data-tilt data-tilt-max="5" data-tilt-speed="400">
-        <div class="bg-gray-900/90 border-2 border-purple-600 rounded-2xl h-96 flex flex-col glow-purple">
+    <!-- メイン巨大チャットウィンドウ（モバイル対応強化） -->
+    <div class="w-full max-w-4xl">
+      <div class="card p-4 md:p-8 tilt" data-tilt data-tilt-max="5" data-tilt-speed="400">
+        <div class="bg-gray-900/95 border-2 border-purple-600 rounded-2xl flex flex-col h-96 md:h-[600px] glow-purple">
+          <!-- ヘッダー -->
           <div class="p-4 border-b-2 border-purple-600 flex justify-between items-center">
-            <h2 class="text-3xl glow-purple">Grok分身AI</h2>
-            <a href="index.html" class="text-xl text-gray-400 hover:text-red-500">← 戻る</a>
+            <h2 class="text-2xl md:text-3xl glow-purple">Grok分身AI</h2>
+            <a href="index.html" class="text-lg md:text-xl text-gray-400 hover:text-red-500">← 戻る</a>
           </div>
-          <div id="chat-messages" class="flex-1 p-6 overflow-y-auto flex flex-col gap-4">
+
+          <!-- メッセージエリア -->
+          <div id="chat-messages" class="flex-1 p-4 md:p-6 overflow-y-auto flex flex-col gap-4">
             <div class="message-ai">
-              ようこそ！何でも聞いてね😈<br>
+              ようこそ！何でも聞いてね😈<br><br>
               例:<br>
               ・「おすすめのexecutor教えて」<br>
               ・「Deltaのインストール方法」<br>
@@ -46,13 +52,17 @@
               ・「iZenってどう使うの？」
             </div>
           </div>
+
+          <!-- 入力エリア -->
           <input type="text" id="chat-input" placeholder="ここに質問を入力してEnter..." 
-                 class="p-5 bg-gray-800 border-t-2 border-purple-600 text-white text-lg focus:outline-none"/>
+                 class="p-4 md:p-5 bg-gray-800 border-t-2 border-purple-600 text-white text-base md:text-lg focus:outline-none"/>
         </div>
       </div>
     </div>
 
-    <p class="text-xl mt-12 text-gray-400">ヒント: 質問は日本語でも英語でもOK！</p>
+    <p class="text-base md:text-lg mt-8 text-gray-400 text-center px-4">
+      ヒント: 質問は日本語でも英語でもOK！モバイルでも快適に使えます。
+    </p>
   </div>
 
   <!-- テーマスイッチャー -->
@@ -62,31 +72,25 @@
     <div class="theme-btn" id="neon-btn" onclick="setTheme('neon-mode')"></div>
   </div>
 
-
   <script>
-    // Tilt初期化
     VanillaTilt.init(document.querySelectorAll(".tilt"));
 
-    // テーマ切り替え
     function setTheme(theme) {
       document.body.className = theme;
     }
 
-    // 粒子エフェクト（AIページはもっと激しく）
     particlesJS("particles-js", {
       particles: {
-        number: { value: 120 },
+        number: { value: 60 },
         color: { value: ["#7b2cbf", "#00b4d8", "#d00000"] },
-        size: { value: 4, random: true },
-        opacity: { value: 0.6, random: true },
-        move: { speed: 2, direction: "none", random: true }
+        size: { value: 2 },
+        opacity: { value: 0.2, random: true },
+        move: { speed: 0.5 }
       },
-      interactivity: {
-        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } }
-      }
+      interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
     });
 
-    // チャット機能
+    // チャット機能（見やすさ強化）
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
 
@@ -98,28 +102,30 @@
       const msg = chatInput.value.trim();
       if (!msg) return;
 
+      // ユーザー：右寄せ
       addMessage('user', msg);
       chatInput.value = '';
 
       setTimeout(() => {
-        let reply = "ふむふむ、いい質問だね！ でもまだ本物のGrokじゃないから、がんばって答えるよ😂";
+        let reply = "いい質問だね！がんばって答えるよ😉";
 
         const lowerMsg = msg.toLowerCase();
 
         if (lowerMsg.includes('delta') || lowerMsg.includes('デルタ')) {
-          reply = "Deltaはモバイル最強executor！<br>1. ToolsページからIPAダウンロード<br>2. eSignかk-eSignで署名してインストール<br>3. 起動してkey取得（24hごと）<br>4. Robloxにアタッチしてスクリプト実行！<br>altアカウント必須だよ！";
+          reply = "Deltaはモバイル最強executor！<br><br>【インストール手順】<br>1. ToolsページからIPAダウンロード<br>2. eSignまたはk-eSignで署名<br>3. インストール完了 → 起動<br>4. key取得（24hごと更新）<br>5. Robloxにアタッチしてスクリプト実行！<br><br>※altアカウント必須だよ！";
         } else if (lowerMsg.includes('xeno') || lowerMsg.includes('solara') || lowerMsg.includes('executor') || lowerMsg.includes('おすすめ')) {
-          reply = "PCならXenoかSolaraが今最強！無料でキー不要、UNC高い。<br>モバイルならDeltaかArceus Xが神。<br>詳細はExecutorsページ見てね！";
+          reply = "【おすすめexecutor】<br><br>・PC最強 → Xeno / Solara（無料・キー不要・UNC高い）<br>・モバイル最強 → Delta / Arceus X<br><br>詳細はExecutorsページ見てね！";
         } else if (lowerMsg.includes('script') || lowerMsg.includes('スクリプト') || lowerMsg.includes('blox fruits')) {
-          reply = "Scriptsページおすすめ！<br>・Infinite Yield（万能admin）<br>・Blox Fruits Auto Farm（果実自動、raid boss auto）<br>・Owl Hub（40ゲーム対応）<br>全部ScriptBloxから最新版取れるよ！";
-        } else if (lowerMsg.includes('bypass') || lowerMsg.includes('izen') || lowerMsg.includes('バイパス')) {
-          reply = "今はiZenが最強bypass！<br>Bypassページに詳しく書いてる＋おすすめDiscordサーバー（Lv.1が神）も紹介中！<br>executorと一緒に使って検知回避してね。";
-        } else if (lowerMsg.includes('esign') || lowerMsg.includes('インストール') || lowerMsg.includes('ipa')) {
-          reply = "Toolsページ見て！<br>eSignとk-eSignの使い方めっちゃ詳しく書いてる。<br>DeltaのIPAも直リンクあり。<br>クリックでURLコピーできるよ！";
+          reply = "【人気スクリプト】<br><br>・Infinite Yield（万能adminコマンド）<br>・Blox Fruits Auto Farm（果実自動・raid auto）<br>・Owl Hub（40ゲーム対応）<br><br>ScriptsページでCopyボタンで即コピー可能！";
+        } else if (lowerMsg.includes('bypass') || lowerMsg.includes('izen')) {
+          reply = "今最強のbypassはiZen！<br><br>Bypassページに詳しい使い方＋おすすめDiscordサーバー（Lv.1が神）紹介中！<br>executorと併用で検知回避率爆上げ！";
+        } else if (lowerMsg.includes('esign') || lowerMsg.includes('インストール')) {
+          reply = "【署名ツール】<br><br>・eSign → PC必要、安定<br>・k-eSign → モバイルだけで完結<br><br>Toolsページに超詳しく手順書いてるよ！URLコピーもできる！";
         } else {
-          reply = "質問ありがとう！その内容はサイトの各ページに詳しく書いてあるよ😉<br>・Executors → executor情報<br>・Scripts → スクリプト<br>・Bypass → 回避方法<br>・Tools → インストールツール<br>探してみて！";
+          reply = "その質問はサイトの各ページに詳しく書いてあるよ！<br><br>・Executors → executor情報<br>・Scripts → スクリプトコピー<br>・Bypass → 回避方法<br>・Tools → インストールツール<br><br>探してみてね😉";
         }
 
+        // AI：左寄せ
         addMessage('ai', reply);
       }, 800);
     }
@@ -132,5 +138,40 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
   </script>
+
+  <style>
+    /* チャットメッセージ見やすさ強化（モバイル対応） */
+    .message-user {
+      align-self: flex-end;
+      background: var(--accent-main);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 20px 20px 4px 20px;
+      max-width: 85%;
+      word-wrap: break-word;
+      margin-left: 20px;
+    }
+
+    .message-ai {
+      align-self: flex-start;
+      background: #222233;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 20px 20px 20px 4px;
+      max-width: 85%;
+      word-wrap: break-word;
+      margin-right: 20px;
+      border: 1px solid var(--accent-sub);
+    }
+
+    /* モバイルで入力しやすく */
+    @media (max-width: 640px) {
+      .message-user, .message-ai {
+        max-width: 90%;
+        font-size: 15px;
+        padding: 10px 14px;
+      }
+    }
+  </style>
 </body>
 </html>

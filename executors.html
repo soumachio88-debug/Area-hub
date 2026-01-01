@@ -6,6 +6,7 @@
   <title>Executors | Area Hub</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
   <header>
@@ -19,6 +20,8 @@
       </ul>
     </nav>
   </header>
+
+  <div id="particles-js"></div>
 
   <div class="container">
     <h1 class="text-6xl md:text-8xl text-center my-20 glow-text">Executors</h1>
@@ -120,7 +123,7 @@
         </p>
       </div>
 
-      <!-- モバイル系はここから -->
+      <!-- モバイル系 -->
       <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
         <h2 class="text-4xl glow-purple mb-4">種類別 (iPhone/Android専用⭕️)</h2>
         <a href="https://s-k.neocities.org/DL" target="_blank" class="text-2xl glow-text underline mb-4 block">Visit →</a>
@@ -177,7 +180,8 @@
           Arceus X V5/NeoはAndroid/iOS executor、無料(key verification)。特徴: アニメUI、AIスクリプト、極性能、翻訳/音楽/動HUB、99%スクリプトサポート。UNC高、banリスクalt推奨。Discordコミュニティ。更新2026版軽量高グラフィック。
         </p>
       </div>
-      <!-- 新規追加: Evon -->
+
+      <!-- 追加executor -->
       <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
         <h2 class="text-4xl glow-purple mb-4">Evon (PC専用⭕️ 無料 Level 8 UNC 高)</h2>
         <a href="https://evon.cc/" target="_blank" class="text-2xl glow-text underline mb-4 block">Visit →</a>
@@ -186,7 +190,6 @@
         </p>
       </div>
 
-      <!-- 新規追加: Hydrogen -->
       <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
         <h2 class="text-4xl glow-purple mb-4">Hydrogen (モバイル/PC/Mac⭕️ 無料 UNC 高)</h2>
         <a href="https://hydrogenexecutor.com/" target="_blank" class="text-2xl glow-text underline mb-4 block">Visit →</a>
@@ -195,7 +198,6 @@
         </p>
       </div>
 
-      <!-- 新規追加: Zeus -->
       <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
         <h2 class="text-4xl glow-purple mb-4">Zeus (PC/モバイル⭕️ 無料キーなし UNC 高)</h2>
         <a href="https://github.com/zeus-exploit/zeus" target="_blank" class="text-2xl glow-text underline mb-4 block">GitHub/Visit →</a>
@@ -204,7 +206,6 @@
         </p>
       </div>
 
-      <!-- 新規追加: Coco Z (注意付き) -->
       <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
         <h2 class="text-4xl glow-purple mb-4">Coco Z (PC専用⭕️ 無料キーなし UNC 高)</h2>
         <a href="https://wearedevs.net/" target="_blank" class="text-2xl glow-text underline mb-4 block">WeAreDevs/Visit →</a>
@@ -213,7 +214,6 @@
         </p>
       </div>
 
-      <!-- 新規追加: Fluxus -->
       <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
         <h2 class="text-4xl glow-purple mb-4">Fluxus (モバイル/PC⭕️ 無料 UNC 変動)</h2>
         <a href="https://fluxusteams.com/" target="_blank" class="text-2xl glow-text underline mb-4 block">Visit →</a>
@@ -221,6 +221,7 @@
           Fluxusは昔の定番が2026で復活更新中、Android/Windows対応。無料キーなし版あり。特徴: 軽量、高FPS、script hub。モバイル最適化抜群。更新不定期だが使える時強い。banリスク中、alt推奨。懐かし派おすすめ。定期的に公式確認を。
         </p>
       </div>
+
     </div>
   </div>
 
@@ -238,18 +239,24 @@
   </div>
 
   <script>
-    // Tilt効果初期化
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-      max: 10,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.3,
-    });
+    // Tilt初期化
+    VanillaTilt.init(document.querySelectorAll(".tilt"));
 
     // テーマ切り替え
     function setTheme(theme) {
       document.body.className = theme;
     }
+
+    // 粒子エフェクト
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: ["#7b2cbf", "#00b4d8", "#d00000"] },
+        size: { value: 3 },
+        move: { speed: 1 }
+      },
+      interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
+    });
 
     // 検索機能
     const searchInput = document.getElementById('searchInput');

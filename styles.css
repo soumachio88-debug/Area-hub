@@ -1,4 +1,4 @@
-/* styles.css */
+/* styles.css - 全ページ共通スタイル */
 :root {
   --accent-main: #7b2cbf;
   --accent-sub: #00b4d8;
@@ -27,6 +27,22 @@ body {
   color: white;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+/* パルス背景アニメ（神UI） */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at center, rgba(123,44,191,0.1) 0%, transparent 70%);
+  animation: pulse 8s infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
 }
 
 header {
@@ -131,3 +147,6 @@ nav a:hover {
   overflow: hidden;
   box-shadow: 0 0 30px var(--accent-main);
 }
+
+/* テキストセンター */
+.text-center { text-align: center; }

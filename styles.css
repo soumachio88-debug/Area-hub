@@ -1,0 +1,133 @@
+/* styles.css */
+:root {
+  --accent-main: #7b2cbf;
+  --accent-sub: #00b4d8;
+  --danger: #d00000;
+  --bg: #0a0a1a;
+  --card-bg: #111122;
+  --text-glow: 0 0 15px;
+}
+
+.blood-mode {
+  --accent-main: #d00000;
+  --accent-sub: #8b0000;
+  --danger: #ff3333;
+}
+
+.neon-mode {
+  --accent-main: #00ffff;
+  --accent-sub: #ff00ff;
+  --danger: #00ff00;
+}
+
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  background: var(--bg);
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10,10,26,0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--accent-main);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-shadow: var(--text-glow) var(--accent-main);
+  transition: all 0.3s;
+}
+
+nav a:hover {
+  color: var(--danger);
+  text-shadow: 0 0 25px var(--danger);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 20px 40px;
+}
+
+.glow-text { text-shadow: var(--text-glow) var(--accent-main); }
+.glow-purple { text-shadow: 0 0 20px #7b2cbf; }
+.glow-red { text-shadow: 0 0 20px #d00000; }
+
+.card {
+  background: var(--card-bg);
+  border: 2px solid var(--accent-main);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--danger);
+  box-shadow: 0 20px 40px rgba(208,0,0,0.4);
+}
+
+.tilt {
+  transition: transform 0.3s;
+  transform: perspective(1000px) rotateX(0) rotateY(0);
+}
+
+/* テーマスイッチャー */
+.theme-switcher {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 999;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--accent-main);
+}
+
+.theme-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 10px 0;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid white;
+}
+
+#purple-btn { background: #7b2cbf; }
+#blood-btn { background: #d00000; }
+#neon-btn { background: #00ffff; }
+
+/* Discord Widget */
+.discord-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 998;
+  border: 3px solid var(--accent-main);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 30px var(--accent-main);
+}

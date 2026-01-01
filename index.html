@@ -6,7 +6,6 @@
   <title>Area Hub</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-  <!-- 粒子エフェクト（神UI） -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
@@ -23,36 +22,41 @@
     </nav>
   </header>
 
-  <!-- 粒子エフェクト背景 -->
+  <!-- 粒子背景（控えめ） -->
   <div id="particles-js"></div>
 
-  <div class="container text-center">
-    <!-- 爆発的イントロ -->
-    <h1 class="text-7xl md:text-9xl font-bold mt-32 glow-text" id="intro-text">
-      ようこそ、<br>静かに狂った<br>情報の領域へ。
+  <!-- メインコンテンツ（画面中央に即表示） -->
+  <div class="container px-4 py-12 min-h-screen flex flex-col items-center justify-center">
+    <!-- イントロ文字 -->
+    <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold glow-text text-center mb-8 leading-tight">
+      ようこそ、<br class="sm:hidden">静かに狂った<br>情報の領域へ。
     </h1>
 
-    <p class="text-3xl mt-12 glow-text opacity-0" id="sub-text">ここでは、禁断の鍵が静かに息を潜めている。</p>
+    <p class="text-xl sm:text-2xl glow-text text-center mb-12">ここでは、禁断の鍵が静かに息を潜めている。</p>
 
     <!-- Area Hub 大カード -->
-    <div class="my-20 opacity-0" id="main-card">
-      <div class="card max-w-4xl mx-auto p-12 tilt" data-tilt data-tilt-max="8" data-tilt-speed="400">
-        <h2 class="text-6xl glow-purple mb-8">Area Hub</h2>
-        <p class="text-2xl glow-text">Robloxの深淵へようこそ。executor、script、bypass、tool…すべてがここに。</p>
-      </div>
+    <div class="card w-full max-w-4xl p-8 md:p-12 tilt mb-16" data-tilt data-tilt-max="8" data-tilt-speed="400">
+      <h2 class="text-5xl sm:text-6xl glow-purple text-center mb-6">Area Hub</h2>
+      <p class="text-xl sm:text-2xl glow-text text-center">
+        Robloxの深淵へようこそ。<br class="hidden sm:block">
+        executor、script、bypass、tool…すべてがここに。
+      </p>
     </div>
 
-    <!-- 参加ボタン -->
-    <div class="flex justify-center gap-12 my-20 opacity-0" id="join-buttons">
-      <a href="https://line.me/ti/g2/ctACQKVIXgkV5Hp0U5qESr3dGxIo-cuqx95cuQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" 
-         class="card p-10 text-center glow-red hover:glow-purple transition tilt" data-tilt>
-        <h3 class="text-4xl">Join LINE OpenChat</h3>
-        <p class="mt-4 text-xl">最新情報＆コミュニティ</p>
+    <!-- 参加ボタン（完璧レスポンシブグリッド） -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-4xl">
+      <!-- LINEボタン -->
+      <a href="https://line.me/ti/g2/ctACQKVIXgkV5Hp0U5qESr3dGxIo-cuqx95cuQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+         class="card p-8 md:p-12 text-center glow-red hover:glow-purple transition tilt flex flex-col justify-center" data-tilt>
+        <h3 class="text-3xl sm:text-4xl mb-4">Join LINE OpenChat</h3>
+        <p class="text-lg sm:text-xl">最新情報＆コミュニティ</p>
       </a>
-      <a href="https://discord.gg/C6aTDUdw" 
-         class="card p-10 text-center glow-red hover:glow-purple transition tilt" data-tilt>
-        <h3 class="text-4xl">Join Discord Server</h3>
-        <p class="mt-4 text-xl">リアルタイム共有＆サポート</p>
+
+      <!-- Discordボタン -->
+      <a href="https://discord.gg/C6aTDUdw"
+         class="card p-8 md:p-12 text-center glow-red hover:glow-purple transition tilt flex flex-col justify-center" data-tilt>
+        <h3 class="text-3xl sm:text-4xl mb-4">Join Discord Server</h3>
+        <p class="text-lg sm:text-xl">リアルタイム共有＆サポート</p>
       </a>
     </div>
   </div>
@@ -64,7 +68,7 @@
     <div class="theme-btn" id="neon-btn" onclick="setTheme('neon-mode')"></div>
   </div>
 
-  <!-- Discord Widget -->
+  <!-- Discord Widget（右下固定） -->
   <div class="discord-widget">
     <iframe src="https://discord.com/widget?id=YOUR_DISCORD_SERVER_ID&theme=dark" width="350" height="500"
             allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
@@ -79,57 +83,22 @@
       document.body.className = theme;
     }
 
-    // 粒子エフェクト
+    // 粒子エフェクト（控えめ＆即表示）
     particlesJS("particles-js", {
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
+        number: { value: 50 },
         color: { value: ["#7b2cbf", "#00b4d8", "#d00000"] },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: false },
-        move: { enable: true, speed: 1, direction: "none", random: true, straight: false }
+        size: { value: 2 },
+        opacity: { value: 0.2, random: true },
+        move: { speed: 0.5 }
       },
-      interactivity: {
-        detect_on: "canvas",
-        events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
-      },
-      retina_detect: true
+      interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
     });
 
-    // 爆発的イントロアニメ
-    window.onload = () => {
-      const intro = document.getElementById('intro-text');
-      const sub = document.getElementById('sub-text');
-      const card = document.getElementById('main-card');
-      const buttons = document.getElementById('join-buttons');
-
-      // 1. イントロ文字出現
-      setTimeout(() => {
-        intro.style.transition = 'opacity 3s, transform 3s';
-        intro.style.opacity = '1';
-        intro.style.transform = 'scale(1.05)';
-      }, 500);
-
-      // 2. サブテキスト
-      setTimeout(() => {
-        sub.style.transition = 'opacity 2s';
-        sub.style.opacity = '1';
-      }, 3000);
-
-      // 3. メインカード
-      setTimeout(() => {
-        card.style.transition = 'opacity 2s, transform 1s';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, 4500);
-
-      // 4. 参加ボタン
-      setTimeout(() => {
-        buttons.style.transition = 'opacity 2s';
-        buttons.style.opacity = '1';
-      }, 6000);
-    };
+    // 即表示（アニメなしでドカン）
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.container').style.opacity = '1';
+    });
   </script>
 </body>
 </html>

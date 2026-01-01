@@ -6,6 +6,7 @@
   <title>Bypass | Area Hub</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
   <header>
@@ -19,6 +20,8 @@
       </ul>
     </nav>
   </header>
+
+  <div id="particles-js"></div>
 
   <div class="container">
     <h1 class="text-6xl md:text-8xl text-center my-20 glow-text">Bypass</h1>
@@ -97,18 +100,24 @@
   </div>
 
   <script>
-    // Tilt効果初期化
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-      max: 10,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.3,
-    });
+    // Tilt初期化
+    VanillaTilt.init(document.querySelectorAll(".tilt"));
 
     // テーマ切り替え
     function setTheme(theme) {
       document.body.className = theme;
     }
+
+    // 粒子エフェクト
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: ["#7b2cbf", "#00b4d8", "#d00000"] },
+        size: { value: 3 },
+        move: { speed: 1 }
+      },
+      interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
+    });
   </script>
 </body>
 </html>

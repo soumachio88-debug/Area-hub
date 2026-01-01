@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Area Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="executors.html">Executors</a></li>
+        <li><a href="scripts.html">Scripts</a></li>
+        <li><a href="bypass.html">Bypass</a></li>
+        <li><a href="tools.html">Tools</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container text-center">
+    <h1 class="text-7xl md:text-9xl font-bold mt-32 glow-text" id="intro-text">
+      ようこそ、<br>静かに狂った<br>情報の領域へ。
+    </h1>
+
+    <div class="my-20">
+      <div class="card max-w-4xl mx-auto p-12 tilt">
+        <h2 class="text-6xl glow-purple mb-8">Area Hub</h2>
+        <p class="text-2xl glow-text">ここでは、禁断の鍵が静かに息を潜めている。</p>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-12 my-20">
+      <a href="https://line.me/ti/g2/ctACQKVIXgkV5Hp0U5qESr3dGxIo-cuqx95cuQ?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" 
+         class="card p-8 text-center glow-red hover:glow-purple transition">
+        <h3 class="text-3xl">Join LINE OpenChat</h3>
+      </a>
+      <a href="https://discord.gg/C6aTDUdw" 
+         class="card p-8 text-center glow-red hover:glow-purple transition">
+        <h3 class="text-3xl">Join Discord Server</h3>
+      </a>
+    </div>
+  </div>
+
+  <!-- テーマスイッチャー -->
+  <div class="theme-switcher">
+    <div class="theme-btn" id="purple-btn" onclick="setTheme('default')"></div>
+    <div class="theme-btn" id="blood-btn" onclick="setTheme('blood-mode')"></div>
+    <div class="theme-btn" id="neon-btn" onclick="setTheme('neon-mode')"></div>
+  </div>
+
+  <!-- Discord Widget -->
+  <div class="discord-widget">
+    <iframe src="https://discord.com/widget?id=YOUR_DISCORD_SERVER_ID&theme=dark" width="350" height="500" 
+            allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+
+  <script>
+    // イントロアニメ
+    window.onload = () => {
+      const text = document.getElementById('intro-text');
+      text.style.opacity = 0;
+      setTimeout(() => {
+        text.style.transition = 'opacity 3s';
+        text.style.opacity = 1;
+      }, 1000);
+    };
+
+    function setTheme(theme) {
+      document.body.className = theme;
+    }
+  </script>
+</body>
+</html>

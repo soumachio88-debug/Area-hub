@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scripts | Area Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="executors.html">Executors</a></li>
+        <li><a href="scripts.html">Scripts</a></li>
+        <li><a href="bypass.html">Bypass</a></li>
+        <li><a href="tools.html">Tools</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1 class="text-6xl md:text-8xl text-center my-20 glow-text">Scripts</h1>
+
+    <!-- 検索バー -->
+    <div class="max-w-2xl mx-auto mb-16">
+      <div class="relative">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="スクリプト名・ゲーム名・universal・auto-farmなどで検索..."
+          class="w-full px-8 py-6 bg-gray-900/80 border-2 border-purple-600 rounded-2xl text-white text-xl placeholder-gray-400 focus:outline-none focus:border-red-600 glow-purple transition-all"
+        />
+        <span class="absolute right-8 top-1/2 -translate-y-1/2 text-3xl">🔍</span>
+      </div>
+    </div>
+
+    <!-- Scriptsカードグリッド -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="scriptGrid">
+
+      <!-- メイン: ScriptBlox -->
+      <div class="card tilt col-span-1 md:col-span-2 lg:col-span-3" data-tilt data-tilt-max="8" data-tilt-speed="400">
+        <h2 class="text-5xl glow-purple mb-6 text-center">ScriptBlox - Robloxスクリプトの聖地</h2>
+        <a href="https://scriptblox.com/" target="_blank" class="text-3xl glow-text underline mb-6 block text-center">公式サイト →</a>
+        <p class="text-lg leading-relaxed">
+          ScriptBloxはRobloxコミュニティの定番スクリプト共有プラットフォームで、ユーザーがLuaスクリプトをアップロード・検索・共有できる現代的なサイト。Pastebinの代替として人気で、数千のスクリプトが毎日更新。無料登録でダウンロード可能、ゲーム別カテゴリ（Blox Fruits, Adopt Meなど）で探しやすく、トレンド/人気順ソート機能あり。特徴: ユーザー投稿ベースで新鮮、コメント/評価システムで品質確認、モバイル対応UI。人気の理由: 簡単検索で初心者フレンドリー、OPスクリプト（overpowered）やユニバーサルツール満載。リスク: TOS違反ban注意、altアカウント推奨。コミュニティ活発でDiscord連携、2026現在もアクティブ。Roblox exploitの宝庫として、executorと組み合わせてauto-farm/ESP/aimbot実装に最適。全体的にユーザー生成コンテンツのハブで、クリエイターがスクリプトを改良共有。安全のため公式ソースDL推奨。
+        </p>
+      </div>
+
+      <!-- Infinite Yield -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">Infinite Yield (Universal Admin)</h2>
+        <a href="https://scriptblox.com/script/Infinite-Yield" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          Roblox史上最も有名なadminコマンドスクリプト。数百のコマンド（fly, noclip, god, teleport, speed, espなど）を搭載。ほぼ全てのexecutor対応、キー不要で即実行可能。特徴: コマンドリスト表示、;helpで使い方簡単、定期更新でByfron回避。人気理由: どんなゲームでも使える汎用性、ビュー数億超えのレジェンド。初心者から上級者まで必須。モバイル/PC両対応、クラッシュほぼなし。banリスク高めなのでaltアカウント推奨。2026現在もトップ人気。
+        </p>
+      </div>
+
+      <!-- Blox Fruits OP Script -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">Blox Fruits Auto Farm (最強)</h2>
+        <a href="https://scriptblox.com/script/blox-fruits" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          Blox Fruits専用最強auto-farmスクリプト。果実自動収集、raid boss auto、auto level up、fruit sniper、server hop、ESPなど満載。GUIで設定簡単、タッチ操作対応でモバイル最適。2026最新果実対応、更新頻繁。人気理由: Blox Fruitsプレイヤーの9割が探す神スクリプト、時間短縮効果抜群。Delta/Arceus X/Codexで最高パフォーマンス。ban検知されやすいので短時間使用推奨。
+        </p>
+      </div>
+
+      <!-- Universal Script Hub -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">Universal ScriptHub V3 (Mobile Keyless)</h2>
+        <a href="https://scriptblox.com/script/universal" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          モバイル向け最強ユニバーサルハブ。ゲーム自動検知で最適スクリプトロード、aimbot/esp/auto-farm内蔵。キー不要、Delta/Cryptic/Arceus Xで完璧動作。軽量で低スペOK、広告なしクリーンUI。2026でモバイルユーザー人気No.1。ban回避も優秀。
+        </p>
+      </div>
+
+      <!-- Pet Simulator X -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">Pet Simulator X Auto Farm</h2>
+        <a href="https://scriptblox.com/script/pet-simulator-x" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          Pet Simulator X専用auto-farm。coin自動収集、auto hatch、auto trade、gem dupなど。GUI豊富で設定自由。Solara/Evonで安定動作。人気ゲームゆえに常に上位ランク。
+        </p>
+      </div>
+
+      <!-- Arsenal Aimbot -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">Arsenal Silent Aimbot + ESP</h2>
+        <a href="https://scriptblox.com/script/arsenal" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          Arsenal専用無音aimbot + wall ESP。ヘッドショット率爆上げ、敵位置常時表示。Xeno/Solaraで最高精度。PVP勢必須の神スクリプト。
+        </p>
+      </div>
+
+      <!-- Adopt Me Auto Farm -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">Adopt Me Auto Farm & Trade</h2>
+        <a href="https://scriptblox.com/script/adopt-me" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          Adopt Me専用auto-pet hatch、auto task、auto trade bot。bucks高速稼ぎ、ネオンペット量産可能。Codex/Deltaで快適動作。
+        </p>
+      </div>
+
+      <!-- Da Hood Script -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">Da Hood God Mode + Cash</h2>
+        <a href="https://scriptblox.com/script/da-hood" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          Da Hood専用god mode、auto cash farm、speed hack、aimbot。ストリート系ゲームで無敵になれる。Evon/Fluxusで人気。
+        </p>
+      </div>
+
+      <!-- BedWars Script -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">BedWars Auto Win</h2>
+        <a href="https://scriptblox.com/script/bedwars" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          BedWars専用auto bridge、auto buy、kill aura、bed ESP。チーム戦を一人で制覇可能。Hydrogen/Zeusで安定。
+        </p>
+      </div>
+
+      <!-- Murder Mystery 2 -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">MM2 ESP & Coin Farm</h2>
+        <a href="https://scriptblox.com/script/mm2" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          Murder Mystery 2専用killer/sheriff ESP、coin auto farm。役職判別で有利に。Bunni/Volcanoで軽快動作。
+        </p>
+      </div>
+
+      <!-- Owl Hub (Universal) -->
+      <div class="card tilt" data-tilt data-tilt-max="10" data-tilt-speed="400">
+        <h2 class="text-4xl glow-purple mb-4">Owl Hub (40+ Games Support)</h2>
+        <a href="https://scriptblox.com/script/owl-hub" target="_blank" class="text-2xl glow-text underline mb-4 block">ScriptBlox →</a>
+        <p class="text-lg leading-relaxed">
+          40以上の人気ゲーム対応の巨大ハブ。ゲーム検知で自動最適化。aimbot/esp/flyなど標準装備。Zeus/Evonで最高互換。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- テーマスイッチャー -->
+  <div class="theme-switcher">
+    <div class="theme-btn" id="purple-btn" onclick="setTheme('')"></div>
+    <div class="theme-btn" id="blood-btn" onclick="setTheme('blood-mode')"></div>
+    <div class="theme-btn" id="neon-btn" onclick="setTheme('neon-mode')"></div>
+  </div>
+
+  <!-- Discord Widget -->
+  <div class="discord-widget">
+    <iframe src="https://discord.com/widget?id=YOUR_DISCORD_SERVER_ID&theme=dark" width="350" height="500"
+            allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+
+  <script>
+    // Tilt効果初期化
+    VanillaTilt.init(document.querySelectorAll(".tilt"), {
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.3,
+    });
+
+    // テーマ切り替え
+    function setTheme(theme) {
+      document.body.className = theme;
+    }
+
+    // 検索機能
+    const searchInput = document.getElementById('searchInput');
+    const grid = document.getElementById('scriptGrid');
+    const cards = grid.getElementsByClassName('card');
+
+    searchInput.addEventListener('input', function() {
+      const filter = searchInput.value.toLowerCase();
+      
+      Array.from(cards).forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(filter)) {
+          card.style.display = '';
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => { card.style.display = 'none'; }, 300);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
